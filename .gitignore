@@ -1,3 +1,9 @@
+# Emacs
+*~
+
+# Java
+*.class
+
 # Vim
 *.swp
 
