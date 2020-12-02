@@ -9,7 +9,7 @@ nums_lo_hi = sorted(nums)
 
 # Starting with the highest number, take the next highest.
 for num_hi in nums_hi_lo:
-    # Starting with the lowest number, take the lowest and add.
+    # Starting with the lowest number, take the next lowest and add.
     for num_lo in nums_lo_hi:
         sum = num_hi + num_lo
         if sum == 2020:
