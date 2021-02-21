@@ -5,6 +5,7 @@
 #include <map>
 #include <set>
 #include <string>
+#include <algorithm>
 
 #include <boost/tokenizer.hpp>
 
@@ -112,13 +113,8 @@ int main(void) {
         }
         
         // Check distance against current minimum/maximum.
-        if (current_distance < minimum_distance) {
-            minimum_distance = current_distance;
-        }
-
-        if (current_distance > maximum_distance) {
-            maximum_distance = current_distance;
-        }
+        minimum_distance = std::min<int>(current_distance, minimum_distance);
+        maximum_distance = std::max<int>(current_distance, maximum_distance);
     }
 
     std::cout << "Minimum: " << minimum_distance << "\n";
