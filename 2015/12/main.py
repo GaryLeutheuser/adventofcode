@@ -7,16 +7,6 @@ import json
 # Filtered value, if set, will immediately remove any dictionary that contains a key
 # with that value and not yield any of its elements.
 def generative_breadth_first_search(structure: dict, filtered_value=None):
-    def has_filtered_value(structure: dict, filtered_value):
-        if filtered_value is None:
-            return False
-
-        for key in structure:
-            if structure[key] == filtered_value:
-                return True
-
-        return False
-
     stack = []
     for element in structure:
         stack.append(structure[element])
@@ -25,7 +15,7 @@ def generative_breadth_first_search(structure: dict, filtered_value=None):
     while stack:
         element = stack.pop()
 
-        if isinstance(element, dict) and not has_filtered_value(element, filtered_value):
+        if isinstance(element, dict) and filtered_value not in element.values():
             for key in element:
                 stack.append(element[key])
 
